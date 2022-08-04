@@ -2,7 +2,7 @@
 * Express, mongoDB, Ajax 등을 사용하여 아래 기능을 갖춘 게시판 구현
 * 회원가입, 로그인, 비밀번호찾기
 * 게시글 CRUD
-
+![mainpage](./mainpage.png)
 ---
 # JWT
 

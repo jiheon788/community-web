@@ -7,6 +7,8 @@ const jwt = require("jsonwebtoken");
 const jwtConfig= require("./../config/jwtConfig");
 const nodeMailer = require("nodemailer");
 
+const admin = require("./../data/secret.json");
+
 //  /user 라는 url접근시 여기로 이동
 
 router.post("/signUp", asyncHandler(async (req,res,next)=>{
@@ -90,7 +92,7 @@ router.post("/login", asyncHandler(async(req,res,next)=>{
 router.post("/find/password", asyncHandler(async (req,res,next) => {
   let {email} = req.body;
   let user = await User.findOne({email});
-  let myEmail = "jiheon788@ajou.ac.kr";
+  let myEmail = admin.adminEmail;
 
   let transporter = nodeMailer.createTransport({
     service:"gmail",
@@ -99,7 +101,7 @@ router.post("/find/password", asyncHandler(async (req,res,next) => {
     secure:false,
     auth:{
       user:myEmail,
-      pass:"mozyqghnunwjwmnj"
+      pass:admin.adminPass
     }
   });
 
